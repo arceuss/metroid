@@ -1,26 +1,29 @@
 import sys
 from art import text2art as ascii
 from metroid_utils import *
+from metroid_config import *
 from data.objects import *
 from data.battle import *
 
-type(ascii("METROID"),300)
+type(ascii("METROID"),textspeed_menu_art)
 
-type('1. New Game\n\n2. Load Game\n\n',300)
+type('1. New Game',textspeed_menu)
+type('2. Load Game',textspeed_menu)
 
-type("Press the corresponding key for an option, then hit enter to confirm.\n\n",300)
+type("Press the corresponding key for an option, then hit enter to confirm.",textspeed_menu)
 
-menuoption = input().upper()
+menuoption = input("> ").upper()
+print()
 
 if menuoption == '1':
-    print("\nStarting New Game...")
-    type(f"\nSamus appears.\n\n",20)
-    Samus = player()
-    while Samus.Alive == True:
-        encounter(Samus,'Arachnus',40,8,True)
-        input()
+    type("Starting New Game...", textspeed_menu)
+    Samus = Player()
+    while True:
+        encounter(Samus)
+        input("> ")
+        print()
 elif menuoption == '2':
-    print("\nLocate the path of your save file.")
+    type("Locate the path of your save file.", textspeed_menu)
 else:
-    print("\nQuitting...")
+    type("Quitting...", textspeed_menu)
     sys.exit()

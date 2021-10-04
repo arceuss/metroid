@@ -1,15 +1,21 @@
-from data.objects import *
 import math, random
+from metroid_config import *
+import metroid_utils
 
-def encounter(Samus,name,health,damage,flee):
-    Enemy = entity(name,health,damage,flee)
-    while Enemy.Alive == True and Samus.Alive == True:
-        
-        Samus.attack(Enemy)
-        Enemy.attack(Samus)
-    tmp = Samus.HP
-    Samus.HP += random.randint(0,20)
-    if Samus.HP > Samus.MHP:
-        Samus.HP = Samus.MHP
-    gained = Samus.HP - tmp
-    type(f"\nYou have restored {gained} energy.\n",40)
+def encounter(Samus):
+    enemy = metroid_utils.create_enemy("brinstar")
+    while enemy.Alive and not enemy.Fleed:
+        Samus.attack(enemy)
+        enemy.attack(Samus)
+    if not enemy.Fleed:
+        tmp = Samus.HP
+        Samus.HP += random.randint(0,20)
+        while Samus.HP > 99:
+            Samus.HP -= 99
+            Samus.EnergyTanks += 1
+            if Samus.EnergyTanks > Samus.MaxEnergyTanks:
+                Samus.EnergyTanks = Samus.MaxEnergyTanks
+        gained = Samus.HP - tmp
+        metroid_utils.type(f"You have restored {gained} energy.",textspeed_status)
+    else:
+        metroid_utils.type(f"You escaped from battle, so you gained nothing.")
