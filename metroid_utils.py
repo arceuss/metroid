@@ -29,4 +29,4 @@ def type(text,speed):
     for letter in text:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.01*10.0/speed)
+        time.sleep(0.5*10.0/speed)
