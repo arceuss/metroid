@@ -40,8 +40,8 @@ class Enemy:
     def attack(self,opponent):
         if self.frozenturns == 0 and self.turnnumber % self.playerturns == 0:
             if self.Alive and not self.Fleed:
-                opponent.take_damage(self.DMG)
                 metroid_utils.type(f"{self.definitearticle_name().title()} damages you for {self.DMG} energy!",textspeed_damage)
+                opponent.take_damage(self.DMG)
             else:
                 metroid_utils.type(f"{self.definitearticle_name().title()} has died.",textspeed_enemydie)
         elif self.frozenturns > 0:

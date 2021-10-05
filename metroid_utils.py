@@ -4,23 +4,11 @@ import random
 import ascii_magic
 from metroid_config import *
 
-def pick(options):
-    type("Select an option.",textspeed_options)
-    for idx, element in enumerate(options):
-        ("{}) {}".format(idx+1,element),160)
-    i = input("> ")
-    print()
-    try:
-        if 0 < int(i) <= len(options):
-            return int(i)
-    except:
-        pass
-    return None
 def type(text,speed):
     for letter in text + "\n\n":
         sys.stdout.write(letter)
         sys.stdout.flush()
-        #time.sleep(1.0/speed) # speed = number of times per second
+        time.sleep(0.5*10.0/speed) # speed = number of times per second
 def render(imagepath,color):
     if not color:
         color = ascii_magic.Modes.ASCII

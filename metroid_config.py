@@ -1,4 +1,4 @@
-textspeed_scale = 100
+textspeed_scale = 100 #default 1
 
 textspeed_encounter = 40 * textspeed_scale
 textspeed_damage = 80 * textspeed_scale
@@ -6,8 +6,8 @@ textspeed_status = 160 * textspeed_scale
 textspeed_options = 160 * textspeed_scale
 textspeed_enemydie = 40 * textspeed_scale
 textspeed_playerdie = 20 * textspeed_scale
-textspeed_menu = 360 * textspeed_scale
-textspeed_menu_art = 360 * textspeed_scale
+textspeed_menu = 180 * textspeed_scale
+textspeed_menu_art = 180 * textspeed_scale
 
 max_energy = 20 # Max number of energy tanks
 class Weapon:
