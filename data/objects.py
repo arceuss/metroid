@@ -73,8 +73,8 @@ class Enemy:
             metroid_utils.type(f"You managed to successfully flee from {self.definitearticle_name()}.")
 class Player:
     def __init__(self):
-        self.MaxEnergyTanks = 0
-        self.EnergyTanks = 0
+        self.MaxEnergyTanks = 20
+        self.EnergyTanks = 20
         self.Weapons = []
         for i in range(len(weapons)):
             self.Weapons.append(i)
@@ -118,8 +118,8 @@ class Player:
                         weapon = weapons[weap]
         if not charge:
             if self.ChargedWeapons == []:
-                opponent.take_damage(weapon.Damage)
                 metroid_utils.type(f"You {weapon.Verb1} {weapon.Name.title()} {weapon.Verb2} {opponent.definitearticle_name()}, dealing {weapon.Damage} damage.", textspeed_damage)
+                opponent.take_damage(weapon.Damage)
                 return
             self.ChargedWeapons.append(weapon.Name)
             chargedweapon = []
@@ -134,15 +134,15 @@ class Player:
                 if inlist:
                     chargedweapon.append(weap)
             if chargedweapon == []:
-                opponent.take_damage(weapon.Damage)
                 metroid_utils.type(f"You {weapon.Verb1} {weapon.Name.title()} {weapon.Verb2} {opponent.definitearticle_name()}, dealing {weapon.Damage} damage.", textspeed_damage)
+                opponent.take_damage(weapon.Damage)
             else:
                 chosen = None
                 for weap in chargedweapon:
                     if chosen == None or weap.Damage > chosen.Damage:
                         chosen = weap
-                opponent.take_damage(chosen.Damage)
                 metroid_utils.type(f"You {chosen.Verb1} {chosen.Name.title()} {chosen.Verb2} {opponent.definitearticle_name()}, dealing {chosen.Damage} damage.", textspeed_damage)
+                opponent.take_damage(chosen.Damage)
             self.ChargedWeapons = []
         else:
             self.ChargedWeapons.append(weapon.Name)
