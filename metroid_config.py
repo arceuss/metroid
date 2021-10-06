@@ -83,6 +83,7 @@ enemies = [
     #BaseEnemy("Torizo", 800, 8, 20, 20, 20, 20, 20),
     #BaseEnemy("Golden Torizo", 13500, 160, 20, 20, 20, 20, 20),
     BaseEnemy("Side Hopped", 320, 80, 8, 8, 22, 22, 2),
+    BaseEnemy("7inches", 320, 80, 8, 8, 22, 22, 2),
     #BaseEnemy("Blue Side Hopped", 1500, 120, 8, 8, 22, 22, 2),
     BaseEnemy("Space Pirate", 20, 15, 20, 47, 31, 2, 0),
     #BaseEnemy("Green Space Pirate", 90, 20, 20, 12, 39, 8, 4),
